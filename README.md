@@ -244,29 +244,7 @@ docker compose ps
 
 ---
 
-## 9. Disclosed Technical Limitations
-
-1. **Option B Policy:** Predictions are visual optical estimates. They cannot identify invisible synthetic thread treatments or determine fiber composition when blends look visually identical to pure natural fibers.
-2. **Material Scope:** The deep learning classifier is trained on 6 natural fibers (`Abaca`, `Cotton`, `Hessian`, `Linen`, `Silk`, `Wool`). Other categories are handled through facility inventory routing rules.
-3. **Spatial Defect Boxes:** Bounding boxes provide visual guidance regions for operators rather than sub-millimeter segmentation contours.
-4. **Lighting Conditions:** Inspection conveyors must utilize diffuse illumination. Direct specular glare reduces texture classification accuracy.
-
----
-
-## 10. Release Readiness Verdict
-
-The platform has undergone rigorous independent verification across software engineering and machine learning dimensions:
-
-1. **Local Development (Tier 1): READY**
-   - Automated SQLite setup, seeded demo roles, 60/60 pytest passing, 17/17 end-to-end acceptance checks verified.
-2. **Public Research & Demo Repository (Tier 2): READY**
-   - 100% proprietary code with zero leaked secrets, transparent scientific benchmarks, group-isolated dataset provenance, permissive open-source licenses, and clean multi-viewport Liquid Glass UI.
-3. **Unattended Autonomous Production (Tier 3): NOT READY (Human-in-the-Loop Required)**
-   - Due to optical RGB limitations and high false alarm rates on novel clean weave patterns (100% FPR on unseen looms), autonomous sorting without human operator oversight is not recommended. Deployed in facilities as an operator assistance / triage tool.
-
----
-
-## 11. Licensing & Attribution
+## 9. Licensing & Attribution
 
 - **Application Code:** [MIT License](LICENSE).
 - **AITEX Fabric Defect Database:** Publicly provided by the Textile Industry Research Association (AITEX), Spain. Citations: *J. Silvestre-Blanes et al., A Public Fabric Database for Defect Detection Methods and Its Validation, 2014*.
