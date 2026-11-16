@@ -1,0 +1,128 @@
+{
+  "CP-01: Administrator Authentication": {
+    "status": "PASSED",
+    "details": {
+      "role": "ADMIN",
+      "token_type": "bearer"
+    }
+  },
+  "CP-02: Operator Authentication": {
+    "status": "PASSED",
+    "details": {
+      "role": "OPERATOR"
+    }
+  },
+  "CP-03: Sustainability Manager Authentication": {
+    "status": "PASSED",
+    "details": {
+      "role": "SUSTAINABILITY_MANAGER"
+    }
+  },
+  "CP-04: Manufacturer Authentication": {
+    "status": "PASSED",
+    "details": {
+      "role": "MANUFACTURER"
+    }
+  },
+  "CP-05: Public User Registration": {
+    "status": "PASSED",
+    "details": {
+      "registered_username": "reg_user_64177d"
+    }
+  },
+  "CP-06: RBAC Access Control & Route Boundary Enforcement": {
+    "status": "PASSED",
+    "details": {
+      "operator_blocked_from_admin_route": true
+    }
+  },
+  "CP-07: Waste Consignment Batch Creation": {
+    "status": "PASSED",
+    "details": {
+      "batch_id": "ebbed1f8-dbf7-45de-a878-01c9c4b8d75d",
+      "batch_code": "BATCH-P8-77E49DA7",
+      "status": "COLLECTED"
+    }
+  },
+  "CP-08: Textile Specimen Image Upload & MIME Verification": {
+    "status": "PASSED",
+    "details": {
+      "analysis_id": "e14b6d49-05f9-4a5f-ad2a-288ed3876d2d",
+      "material_prediction": "Unknown / Out-of-Distribution (Visual Estimate)",
+      "material_confidence": 0.4935
+    }
+  },
+  "CP-09: AI Spatial Defect Detection & Bounding Boxes": {
+    "status": "PASSED",
+    "details": {
+      "defect_prediction": "Defect Free",
+      "defect_confidence": 0.94,
+      "bbox_count": 0
+    }
+  },
+  "CP-10: Option B Visual Estimate Governance Tagging": {
+    "status": "PASSED",
+    "details": {
+      "material_with_governance_label": "Unknown / Out-of-Distribution (Visual Estimate)"
+    }
+  },
+  "CP-11: 5-Component Circularity Score Breakdown": {
+    "status": "PASSED",
+    "details": {
+      "circularity_score": 48.5,
+      "breakdown_factors": [
+        "material_recyclability",
+        "material_condition",
+        "reuse_potential",
+        "environmental_benefit",
+        "processing_feasibility",
+        "weights"
+      ]
+    }
+  },
+  "CP-12: 7 Recycling & Material Recovery Pathways": {
+    "status": "PASSED",
+    "details": {
+      "recommended_pathways": [
+        "Recommended Strategy: [Industrial Recovery] Thermal Acoustic Insulation / Industrial Wipers.",
+        "Option: [Industrial Recovery] Fiber recovery indicated. Remove non-textile trims (zippers, buttons) prior to industrial shredding or solvent dissolution."
+      ]
+    }
+  },
+  "CP-13: Operator Quality Review & Uncertainty Management": {
+    "status": "PASSED",
+    "details": {
+      "requires_manual_inspection": true,
+      "uncertainty_reason": "Sample out-of-distribution or high visual ambiguity (confidence=0.49, entropy=0.71) | Option B Policy: Model pending empirical certification. Requires visual inspection."
+    }
+  },
+  "CP-14: Batch Lifecycle Status Progression & Audit History": {
+    "status": "PASSED",
+    "details": {
+      "new_status": "SORTED",
+      "history_count": 2
+    }
+  },
+  "CP-15: Quantitative LCA Environmental Savings Calculations": {
+    "status": "PASSED",
+    "details": {
+      "co2_saved_kg": 115553.6,
+      "water_saved_liters": 42032200.0,
+      "energy_saved_kwh": 265237.0
+    }
+  },
+  "CP-16: Digital Circularity Passport Issuance & Public Lookup": {
+    "status": "PASSED",
+    "details": {
+      "certificate_id": "CERT-BATCH-P8-77E49DA7",
+      "verification_status": "AUTHENTIC",
+      "is_valid": true
+    }
+  },
+  "CP-17: JWT Token Invalidation & Logout Revocation": {
+    "status": "PASSED",
+    "details": {
+      "token_revoked": true
+    }
+  }
+}

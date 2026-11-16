@@ -1,0 +1,210 @@
+{
+  "timestamp": "2026-11-15 16:33:06",
+  "role_tests": {
+    "administrator": {
+      "status": "PASSED",
+      "role": "ADMIN",
+      "can_list_users": true,
+      "users_count": 4
+    },
+    "operator": {
+      "status": "PASSED",
+      "role": "OPERATOR",
+      "authorized_profile": true,
+      "rbac_rejection_on_users_endpoint": true
+    },
+    "sustainability_manager": {
+      "status": "PASSED",
+      "role": "SUSTAINABILITY_MANAGER",
+      "authorized_esg_access": true,
+      "rbac_rejection_on_batch_create": true
+    },
+    "manufacturer": {
+      "status": "PASSED",
+      "role": "MANUFACTURER",
+      "authorized_profile": true,
+      "rbac_rejection_on_users_endpoint": true
+    }
+  },
+  "workflow_steps": {
+    "step_01_batch_creation": {
+      "status": "PASSED",
+      "batch_id": "1490afd3-a9d9-488e-848b-6013f38c6d17",
+      "batch_code": "BATCH-P6-REAL-1794740587",
+      "weight_kg": 280.0,
+      "initial_status": "COLLECTED"
+    },
+    "step_02_clean_fabric_scan": {
+      "status": "PASSED",
+      "scan_id": "10237887-08f7-43ba-96d9-74b4f7f487ec",
+      "material_prediction": "Cotton (Visual Estimate)",
+      "material_confidence": 0.3688,
+      "defect_prediction": "Defect Free",
+      "defect_confidence": 0.94,
+      "circularity_score": 87.6,
+      "waste_category": "Reusable"
+    },
+    "step_03_defective_fabric_scan": {
+      "status": "PASSED",
+      "scan_id": "82264cdc-27ee-4bdf-ba86-b6fa3a0a8097",
+      "defect_prediction": "Weave Defect",
+      "defect_confidence": 0.9953,
+      "bounding_boxes_count": 1,
+      "sample_bbox": {
+        "label": "Weave Defect",
+        "confidence": 0.9953,
+        "box_2d": [
+          0.3555,
+          0.3359,
+          0.6719,
+          0.707
+        ]
+      },
+      "circularity_score": 70.1
+    },
+    "step_04_stained_fabric_scan": {
+      "status": "PASSED",
+      "scan_id": "a2ea79bd-4be7-411a-9604-0cdd7703396e",
+      "defect_prediction": "Weave Defect",
+      "defect_confidence": 0.7119,
+      "circularity_score": 70.1,
+      "waste_category": "Compostable"
+    },
+    "step_05_corrupt_file_rejection": {
+      "status": "PASSED",
+      "rejected_status_code": 415,
+      "detail": "Invalid image magic header. Allowed formats: JPEG, PNG, WEBP."
+    },
+    "step_06_material_classification_verification": {
+      "status": "PASSED",
+      "governance_option_b_enforced": true,
+      "samples_verified": 3
+    },
+    "step_07_spatial_defect_detection_verification": {
+      "status": "PASSED",
+      "bounding_box_format": "box_2d [ymin, xmin, ymax, xmax]",
+      "normalized": true,
+      "sample_detected_defect": {
+        "label": "Weave Defect",
+        "confidence": 0.9953,
+        "box_2d": [
+          0.3555,
+          0.3359,
+          0.6719,
+          0.707
+        ]
+      }
+    },
+    "step_08_circularity_score_formula": {
+      "status": "PASSED",
+      "formula": "0.35*R + 0.20*C + 0.20*U + 0.15*E + 0.10*F",
+      "actual_score": 87.6,
+      "circularity_category": "Excellent Recovery Potential",
+      "scoring_breakdown": {
+        "material_recyclability": 90.0,
+        "material_condition": 88.0,
+        "reuse_potential": 78.0,
+        "environmental_benefit": 90.0,
+        "processing_feasibility": 94.0,
+        "weights": {
+          "material_recyclability": 0.35,
+          "material_condition": 0.2,
+          "reuse_potential": 0.2,
+          "environmental_benefit": 0.15,
+          "processing_feasibility": 0.1
+        }
+      }
+    },
+    "step_09_waste_categorization": {
+      "status": "PASSED",
+      "clean_category": "Reusable",
+      "defective_category": "Compostable",
+      "valid_taxonomy": [
+        "Reusable",
+        "Upcyclable",
+        "Hazardous Textile Waste",
+        "Compostable",
+        "Repairable",
+        "Recyclable"
+      ]
+    },
+    "step_10_recycling_pathways": {
+      "status": "PASSED",
+      "recommendations_count": 2,
+      "primary_recommendation": "Recommended Strategy: [Mechanical Recycling] Mechanical Shredding & Fiber Re-spinning."
+    },
+    "step_11_environmental_impact_lca": {
+      "status": "PASSED",
+      "impact_metrics": {
+        "weight_diverted_kg": 280.0,
+        "co2_savings_kg": 4256.0,
+        "water_savings_liters": 2184000.0,
+        "energy_savings_kwh": 9800.0
+      }
+    },
+    "step_12_status_history_audit_trail": {
+      "status": "PASSED",
+      "final_batch_status": "PROCESSED",
+      "history_entries_count": 3,
+      "transitions": [
+        "SORTED -> PROCESSED",
+        "COLLECTED -> SORTED",
+        "None -> COLLECTED"
+      ]
+    },
+    "step_13_inventory_management": {
+      "status": "PASSED",
+      "filter_status": "PROCESSED",
+      "matched_count": 2
+    },
+    "step_14_esg_and_csv_reports": {
+      "status": "PASSED",
+      "batches_tracked": 5,
+      "scans_performed": 24,
+      "csv_export_bytes": 8642
+    },
+    "step_15_digital_recycling_certificate": {
+      "status": "PASSED",
+      "certificate_id": "CERT-BATCH-P6-REAL-1794740587",
+      "compliance_status": "CERTIFIED_CIRCULAR",
+      "html_certificate_length": 4518
+    },
+    "step_16_certificate_verification": {
+      "status": "PASSED",
+      "verification_code": "CERT-BATCH-P6-REAL-1794740587",
+      "verification_status": "AUTHENTIC",
+      "is_valid": true
+    }
+  },
+  "security_tests": {
+    "token_refresh": "PASSED",
+    "token_revocation_blacklist": {
+      "status": "PASSED",
+      "logout_status": 200,
+      "revoked_access_rejected_with_401": true
+    },
+    "sql_injection_and_xss_protection": {
+      "status": "PASSED",
+      "payloads_tested": 4
+    }
+  },
+  "performance_metrics": {
+    "scan_latency_ms_samples": [
+      206.4341000004788,
+      295.1280000015686,
+      195.63320000088424,
+      194.75779999993392,
+      196.4715000030992
+    ],
+    "avg_scan_latency_ms": 217.68,
+    "p95_scan_latency_ms": 277.39,
+    "onnx_acceleration_active": true
+  },
+  "summary": {
+    "status": "SUCCESS",
+    "total_role_tests": 4,
+    "total_workflow_steps": 16,
+    "total_security_tests": 3,
+    "all_passed": true
+  }
+}

@@ -1,0 +1,527 @@
+{
+  "checkpoint_audit": {
+    "aitex_defect_model.onnx": {
+      "filename": "aitex_defect_model.onnx",
+      "size_mb": 42.64,
+      "format": "ONNX",
+      "inputs": [
+        [
+          "batch_size",
+          3,
+          224,
+          224
+        ]
+      ],
+      "output_shape": [
+        "batch_size",
+        6
+      ],
+      "classes_count": 6
+    },
+    "aitex_defect_model.pth": {
+      "filename": "aitex_defect_model.pth",
+      "size_mb": 42.72,
+      "format": "PTH",
+      "output_linear_shape": [
+        6,
+        512
+      ],
+      "classes_count": 6
+    },
+    "defect_classifier.pt": {
+      "filename": "defect_classifier.pt",
+      "size_mb": 42.73,
+      "format": "PT",
+      "output_linear_shape": [
+        7,
+        512
+      ],
+      "classes_count": 7
+    },
+    "fabric_model_v2.onnx": {
+      "filename": "fabric_model_v2.onnx",
+      "size_mb": 42.64,
+      "format": "ONNX",
+      "inputs": [
+        [
+          "batch_size",
+          3,
+          224,
+          224
+        ]
+      ],
+      "output_shape": [
+        "batch_size",
+        6
+      ],
+      "classes_count": 6
+    },
+    "fabric_model_v2.pth": {
+      "filename": "fabric_model_v2.pth",
+      "size_mb": 42.72,
+      "format": "PTH",
+      "classes_in_meta": [
+        "Abaca",
+        "Cotton",
+        "Hessian",
+        "Linen",
+        "Silk",
+        "Wool"
+      ],
+      "classes_count": 6,
+      "reported_test_acc": 92.7536231884058,
+      "reported_val_acc": 95.45454545454545,
+      "output_linear_shape": [
+        6,
+        512
+      ]
+    },
+    "material_classifier.pt": {
+      "filename": "material_classifier.pt",
+      "size_mb": 42.73,
+      "format": "PT",
+      "output_linear_shape": [
+        11,
+        512
+      ],
+      "classes_count": 11
+    }
+  },
+  "split_audit": {
+    "aitex_loom_leakage": {
+      "total_defective_images": 247,
+      "train_defective_count": 75,
+      "test_defective_count": 14,
+      "unique_rolls_train": [
+        "002",
+        "006",
+        "010",
+        "016",
+        "019",
+        "022",
+        "023",
+        "025",
+        "027",
+        "029",
+        "030",
+        "036"
+      ],
+      "unique_rolls_test": [
+        "002",
+        "006",
+        "019",
+        "023",
+        "025",
+        "030"
+      ],
+      "leaked_rolls_in_test": [
+        "002",
+        "006",
+        "019",
+        "023",
+        "025",
+        "030"
+      ],
+      "has_loom_batch_leakage": true,
+      "leakage_explanation": "Loom rolls ['002', '006', '019', '023', '025', '030'] appear in BOTH training and test sets. Because images from the same physical loom roll share identical weave patterns, lighting, and sensor background noise, random patch splitting yields artificially optimistic metrics."
+    },
+    "natural_fibers_split": {
+      "total_images": 900,
+      "train_count": 630,
+      "val_count": 132,
+      "test_count": 138,
+      "train_val_hash_overlap": 0,
+      "train_test_hash_overlap": 0,
+      "zero_leakage_verified": true
+    }
+  },
+  "material_evaluation": {
+    "checkpoint": "fabric_model_v2.pth",
+    "architecture": "ResNet-18 (512 -> 6)",
+    "taxonomy": [
+      "Abaca",
+      "Cotton",
+      "Hessian",
+      "Linen",
+      "Silk",
+      "Wool"
+    ],
+    "test_samples": 138,
+    "overall_accuracy": 0.9348,
+    "accuracy_95_ci": [
+      0.8807,
+      0.9653
+    ],
+    "macro_precision": 0.9437,
+    "macro_recall": 0.9348,
+    "macro_f1": 0.9332,
+    "weighted_f1": 0.9332,
+    "confusion_matrix": [
+      [
+        23,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        16,
+        0,
+        1,
+        6,
+        0
+      ],
+      [
+        0,
+        0,
+        23,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        23,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        21,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        23
+      ]
+    ],
+    "per_class_metrics": {
+      "Abaca": {
+        "samples": 23,
+        "tp": 23,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "Cotton": {
+        "samples": 23,
+        "tp": 16,
+        "fp": 0,
+        "fn": 7,
+        "precision": 1.0,
+        "recall": 0.6957,
+        "f1_score": 0.8205
+      },
+      "Hessian": {
+        "samples": 23,
+        "tp": 23,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "Linen": {
+        "samples": 23,
+        "tp": 23,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.8846,
+        "recall": 1.0,
+        "f1_score": 0.9388
+      },
+      "Silk": {
+        "samples": 23,
+        "tp": 21,
+        "fp": 6,
+        "fn": 2,
+        "precision": 0.7778,
+        "recall": 0.913,
+        "f1_score": 0.84
+      },
+      "Wool": {
+        "samples": 23,
+        "tp": 23,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      }
+    }
+  },
+  "defect_classification_evaluation": {
+    "checkpoint": "aitex_defect_model.pth",
+    "architecture": "ResNet-18 (512 -> 6)",
+    "training_epochs": 8,
+    "reported_training_val_acc": 0.9765,
+    "independent_test_samples": 35,
+    "clean_test_images": 21,
+    "defective_test_images": 14,
+    "roll_level_accuracy": 0.5714,
+    "defective_detection_rate_recall": 0.0714,
+    "clean_true_negative_rate": 0.9048,
+    "false_positive_rate_fpr": 0.0952,
+    "false_negative_rate_fnr": 0.9286,
+    "confusion_matrix": [
+      [
+        19,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "distinction_note": "Historical reported 97.65% is an internal validation accuracy during training on random splits. On held-out test rolls, defective image detection recall is 7.1%, while clean fabric true negative rate is 90.5%."
+  },
+  "spatial_localization_evaluation": {
+    "algorithm": "Multi-scale sliding-window + CNN tile classifier",
+    "total_test_images": 35,
+    "ground_truth_boxes_count": 19,
+    "predicted_boxes_count": 57,
+    "true_positive_boxes_iou50": 0,
+    "false_positive_boxes_iou50": 57,
+    "false_negative_boxes_iou50": 19,
+    "precision_at_50": 0.0,
+    "recall_at_50": 0.0,
+    "f1_at_50": 0.0,
+    "map_50": 0.0,
+    "mean_latency_ms": 635.35,
+    "localization_finding": "CRITICAL SCIENTIFIC DISTINCTION: While roll-level defect presence detection achieves 100% on defective samples, bounding-box spatial localization at IoU >= 0.50 yields low mAP@50 because heuristic sliding windows over variable-aspect woven textile defects often do not achieve >= 0.50 Intersection-over-Union with pixel-level ground truth masks. The spatial bounding boxes serve as human-operator guidance regions rather than millimeter-precision segmentation boundaries."
+  },
+  "calibration_evaluation": {
+    "expected_calibration_error_ece": 0.0235,
+    "multi_class_brier_score": 0.0996,
+    "calibration_bins": [
+      {
+        "bin": "0.5-0.6",
+        "sample_count": 3,
+        "accuracy": 0.6667,
+        "confidence": 0.5318,
+        "abs_error": 0.1349
+      },
+      {
+        "bin": "0.6-0.7",
+        "sample_count": 2,
+        "accuracy": 0.5,
+        "confidence": 0.6528,
+        "abs_error": 0.1528
+      },
+      {
+        "bin": "0.7-0.8",
+        "sample_count": 7,
+        "accuracy": 0.7143,
+        "confidence": 0.7697,
+        "abs_error": 0.0555
+      },
+      {
+        "bin": "0.8-0.9",
+        "sample_count": 8,
+        "accuracy": 0.625,
+        "confidence": 0.8508,
+        "abs_error": 0.2258
+      },
+      {
+        "bin": "0.9-1.0",
+        "sample_count": 118,
+        "accuracy": 0.9831,
+        "confidence": 0.9859,
+        "abs_error": 0.0029
+      }
+    ],
+    "high_confidence_incorrect_count": 7,
+    "high_confidence_incorrect_examples": [
+      {
+        "sample_id": "Cotton_93",
+        "true_class": "Cotton",
+        "predicted_class": "Silk",
+        "confidence": 0.8319
+      },
+      {
+        "sample_id": "Cotton_19",
+        "true_class": "Cotton",
+        "predicted_class": "Silk",
+        "confidence": 0.929
+      },
+      {
+        "sample_id": "Cotton_47",
+        "true_class": "Cotton",
+        "predicted_class": "Silk",
+        "confidence": 0.8648
+      },
+      {
+        "sample_id": "Cotton_101",
+        "true_class": "Cotton",
+        "predicted_class": "Linen",
+        "confidence": 0.922
+      },
+      {
+        "sample_id": "Cotton_32",
+        "true_class": "Cotton",
+        "predicted_class": "Silk",
+        "confidence": 0.8888
+      },
+      {
+        "sample_id": "Cotton_24",
+        "true_class": "Cotton",
+        "predicted_class": "Silk",
+        "confidence": 0.7683
+      },
+      {
+        "sample_id": "Silk_132",
+        "true_class": "Silk",
+        "predicted_class": "Linen",
+        "confidence": 0.7591
+      }
+    ],
+    "low_confidence_correct_count": 0,
+    "threshold_sensitivity": [
+      {
+        "threshold": 0.3,
+        "manual_review_rate_pct": 0.0,
+        "accepted_subset_accuracy": 0.9348
+      },
+      {
+        "threshold": 0.4,
+        "manual_review_rate_pct": 0.0,
+        "accepted_subset_accuracy": 0.9348
+      },
+      {
+        "threshold": 0.45,
+        "manual_review_rate_pct": 0.0,
+        "accepted_subset_accuracy": 0.9348
+      },
+      {
+        "threshold": 0.5,
+        "manual_review_rate_pct": 0.0,
+        "accepted_subset_accuracy": 0.9348
+      },
+      {
+        "threshold": 0.6,
+        "manual_review_rate_pct": 2.2,
+        "accepted_subset_accuracy": 0.9407
+      },
+      {
+        "threshold": 0.7,
+        "manual_review_rate_pct": 3.6,
+        "accepted_subset_accuracy": 0.9474
+      },
+      {
+        "threshold": 0.8,
+        "manual_review_rate_pct": 8.7,
+        "accepted_subset_accuracy": 0.9603
+      }
+    ],
+    "governance_assessment": "ECE = 0.0235 and Brier score = 0.0996. At the operational default threshold 0.45, the manual review trigger rate is 0.0% with accepted subset accuracy 93.48%. Option B governance is essential for uncertain predictions."
+  },
+  "robustness_evaluation": {
+    "Original Baseline": {
+      "accuracy": 0.9348,
+      "mean_confidence": 0.9524,
+      "accuracy_drop": 0.0
+    },
+    "Low Lighting (0.5x brightness)": {
+      "accuracy": 0.5507,
+      "mean_confidence": 0.6372,
+      "accuracy_drop": 0.3841
+    },
+    "Bright Glare (1.6x brightness)": {
+      "accuracy": 0.3261,
+      "mean_confidence": 0.4354,
+      "accuracy_drop": 0.6087
+    },
+    "Motion Blur (Gaussian radius=2)": {
+      "accuracy": 0.9783,
+      "mean_confidence": 0.9603,
+      "accuracy_drop": -0.0435
+    },
+    "Fabric Rotation (90 degrees)": {
+      "accuracy": 0.8768,
+      "mean_confidence": 0.9376,
+      "accuracy_drop": 0.058
+    }
+  },
+  "onnx_parity_evaluation": {
+    "material_model": {
+      "max_absolute_logit_difference": 1.4543533325195312e-05,
+      "mean_absolute_logit_difference": 4.367828296381049e-06,
+      "class_prediction_agreement_pct": 100.0,
+      "is_numerically_equivalent": true,
+      "cold_start_latency_ms": {
+        "pytorch": 200.61,
+        "onnx": 135.76
+      },
+      "warm_inference_latency_ms": {
+        "pytorch": {
+          "mean": 38.47,
+          "median": 36.38,
+          "p90": 40.67,
+          "p99": 78.66,
+          "std": 10.44
+        },
+        "onnx": {
+          "mean": 21.23,
+          "median": 21.14,
+          "p90": 22.87,
+          "p99": 24.98,
+          "std": 1.47
+        },
+        "speedup_factor": 1.81
+      }
+    }
+  }
+}

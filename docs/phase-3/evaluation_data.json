@@ -1,0 +1,197 @@
+{
+  "material_evaluation": {
+    "model_architecture": "ResNet-18 Transfer Learning",
+    "checkpoint": "fabric_model_v2.pth",
+    "num_classes": 6,
+    "classes": [
+      "Abaca",
+      "Cotton",
+      "Hessian",
+      "Linen",
+      "Silk",
+      "Wool"
+    ],
+    "test_sample_count": 138,
+    "overall_accuracy": 0.9348,
+    "macro_precision": 0.9437,
+    "macro_recall": 0.9348,
+    "macro_f1": 0.9332,
+    "weighted_f1": 0.9332,
+    "avg_latency_ms": 73.19,
+    "confusion_matrix": [
+      [
+        23,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        16,
+        0,
+        1,
+        6,
+        0
+      ],
+      [
+        0,
+        0,
+        23,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        23,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        21,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        23
+      ]
+    ],
+    "per_class_metrics": {
+      "Abaca": {
+        "test_samples": 23,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "Cotton": {
+        "test_samples": 23,
+        "precision": 1.0,
+        "recall": 0.6957,
+        "f1_score": 0.8205
+      },
+      "Hessian": {
+        "test_samples": 23,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "Linen": {
+        "test_samples": 23,
+        "precision": 0.8846,
+        "recall": 1.0,
+        "f1_score": 0.9388
+      },
+      "Silk": {
+        "test_samples": 23,
+        "precision": 0.7778,
+        "recall": 0.913,
+        "f1_score": 0.84
+      },
+      "Wool": {
+        "test_samples": 23,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      }
+    }
+  },
+  "defect_training_evaluation": {
+    "model_architecture": "ResNet-18",
+    "checkpoint": "aitex_defect_model.pth",
+    "training_epochs": 8,
+    "best_val_accuracy": 0.9765,
+    "final_train_loss": 0.2947,
+    "final_train_acc": 0.9304,
+    "final_val_loss": 0.1808,
+    "final_val_acc": 0.8941,
+    "epoch_history": [
+      {
+        "epoch": 1,
+        "train_loss": 1.4242,
+        "train_acc": 0.3203,
+        "val_loss": 1.0894,
+        "val_acc": 0.6235,
+        "time_seconds": 50.21
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.8082,
+        "train_acc": 0.6379,
+        "val_loss": 0.6896,
+        "val_acc": 0.7294,
+        "time_seconds": 45.64
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.5314,
+        "train_acc": 0.7326,
+        "val_loss": 0.4553,
+        "val_acc": 0.8353,
+        "time_seconds": 46.51
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.3885,
+        "train_acc": 0.8357,
+        "val_loss": 0.3495,
+        "val_acc": 0.8588,
+        "time_seconds": 48.28
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.3038,
+        "train_acc": 0.8663,
+        "val_loss": 0.3331,
+        "val_acc": 0.8235,
+        "time_seconds": 47.81
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.4185,
+        "train_acc": 0.8524,
+        "val_loss": 0.2346,
+        "val_acc": 0.9765,
+        "time_seconds": 47.23
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.3003,
+        "train_acc": 0.9248,
+        "val_loss": 0.2042,
+        "val_acc": 0.9647,
+        "time_seconds": 48.73
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.2947,
+        "train_acc": 0.9304,
+        "val_loss": 0.1808,
+        "val_acc": 0.8941,
+        "time_seconds": 48.03
+      }
+    ]
+  },
+  "spatial_detection_evaluation": {
+    "benchmark": "AITEX Fabric Defect Test Split",
+    "total_test_images": 35,
+    "defective_images": 14,
+    "defect_classification_accuracy": 1.0,
+    "clean_images": 21,
+    "clean_classification_accuracy": 0.1429,
+    "total_detected_boxes": 57,
+    "avg_latency_ms": 1432.99,
+    "bounding_box_format": "[ymin, xmin, ymax, xmax] normalized"
+  }
+}

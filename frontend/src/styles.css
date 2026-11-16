@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-midnight: #081721;
+    --deep-teal: #173943;
+    --emerald-accent: #369A87;
+    --sea-glass: #B9E5DF;
+    --frost-white: #EEF5F3;
+  }
+
+  body {
+    margin: 0;
+    background-color: #040d12;
+    color: #EEF5F3;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #369A87;
+    outline-offset: 2px;
+  }
+}
+
+/* Liquid Glass Surface Classes */
+.liquid-glass {
+  background: rgba(13, 31, 43, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(185, 229, 223, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.liquid-glass-elevated {
+  background: rgba(18, 42, 58, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(185, 229, 223, 0.18);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.5);
+}
+
+.liquid-glass-interactive {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-interactive:hover {
+  background: rgba(23, 57, 67, 0.75);
+  border-color: rgba(54, 154, 135, 0.35);
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.45), 0 0 20px -6px rgba(54, 154, 135, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Subtle Specular Top Highlight */
+.glass-specular {
+  position: relative;
+}
+.glass-specular::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(185, 229, 223, 0.3) 50%, transparent 100%);
+  pointer-events: none;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+/* Ambient Liquid Mesh Background */
+.ambient-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(23, 57, 67, 0.5) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(54, 154, 135, 0.25) 0px, transparent 45%),
+    radial-gradient(at 50% 100%, rgba(13, 31, 43, 0.6) 0px, transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Industrial Optical Textile Grid */
+.textile-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(185, 229, 223, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(185, 229, 223, 0.03) 1px, transparent 1px);
+}
+
+/* Custom Sleek Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(8, 23, 33, 0.5);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(39, 95, 110, 0.5);
+  border-radius: 9999px;
+  border: 1px solid rgba(185, 229, 223, 0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(54, 154, 135, 0.7);
+}
+
+/* Graceful Fallback for browsers without backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .liquid-glass {
+    background: #0d1f2b;
+  }
+  .liquid-glass-elevated {
+    background: #122a3a;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

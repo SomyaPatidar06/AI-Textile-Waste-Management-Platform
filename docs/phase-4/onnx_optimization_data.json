@@ -1,0 +1,132 @@
+{
+  "benchmark_timestamp": "2026-11-15 15:02:15",
+  "system_info": {
+    "cpu_count": 8,
+    "onnxruntime_version": "1.32.0",
+    "torch_version": "2.15.0+cpu"
+  },
+  "fabric_model_optimization": {
+    "model_name": "Natural Fiber Classifier (ResNet-18)",
+    "onnx_file": "fabric_model_v2.onnx",
+    "onnx_file_size_mb": 42.64,
+    "numerical_equivalence": {
+      "samples_tested": 50,
+      "max_absolute_diff": 1.9550323486328125e-05,
+      "mean_absolute_diff": 2.619822824954099e-06,
+      "mean_cosine_similarity": 1.0000000154972077,
+      "top1_concordance": 1.0
+    },
+    "latency_benchmarks": {
+      "batch_1": {
+        "batch_size": 1,
+        "pytorch_cpu_ms": {
+          "mean": 43.16,
+          "p50": 36.95,
+          "p95": 69.83,
+          "p99": 81.73
+        },
+        "onnx_cpu_ms": {
+          "mean": 15.4,
+          "p50": 13.21,
+          "p95": 25.12,
+          "p99": 26.94
+        },
+        "speedup_ratio": 2.8
+      },
+      "batch_8": {
+        "batch_size": 8,
+        "pytorch_cpu_ms": {
+          "mean": 265.95,
+          "p50": 257.82,
+          "p95": 334.05,
+          "p99": 367.1
+        },
+        "onnx_cpu_ms": {
+          "mean": 112.76,
+          "p50": 109.88,
+          "p95": 136.96,
+          "p99": 155.73
+        },
+        "speedup_ratio": 2.36
+      },
+      "batch_31": {
+        "batch_size": 31,
+        "pytorch_cpu_ms": {
+          "mean": 1043.71,
+          "p50": 1026.81,
+          "p95": 1169.15,
+          "p99": 1274.78
+        },
+        "onnx_cpu_ms": {
+          "mean": 501.61,
+          "p50": 474.33,
+          "p95": 620.36,
+          "p99": 640.39
+        },
+        "speedup_ratio": 2.08
+      }
+    }
+  },
+  "defect_model_optimization": {
+    "model_name": "AITEX Defect Classifier (ResNet-18)",
+    "onnx_file": "aitex_defect_model.onnx",
+    "onnx_file_size_mb": 42.64,
+    "numerical_equivalence": {
+      "samples_tested": 50,
+      "max_absolute_diff": 2.0265579223632812e-05,
+      "mean_absolute_diff": 2.7398516726862e-06,
+      "mean_cosine_similarity": 0.9999999940395355,
+      "top1_concordance": 1.0
+    },
+    "latency_benchmarks": {
+      "batch_1": {
+        "batch_size": 1,
+        "pytorch_cpu_ms": {
+          "mean": 44.24,
+          "p50": 40.58,
+          "p95": 68.55,
+          "p99": 74.72
+        },
+        "onnx_cpu_ms": {
+          "mean": 30.12,
+          "p50": 28.25,
+          "p95": 52.69,
+          "p99": 69.34
+        },
+        "speedup_ratio": 1.47
+      },
+      "batch_8": {
+        "batch_size": 8,
+        "pytorch_cpu_ms": {
+          "mean": 320.88,
+          "p50": 307.25,
+          "p95": 408.15,
+          "p99": 465.6
+        },
+        "onnx_cpu_ms": {
+          "mean": 154.16,
+          "p50": 133.83,
+          "p95": 265.09,
+          "p99": 348.46
+        },
+        "speedup_ratio": 2.08
+      },
+      "batch_31": {
+        "batch_size": 31,
+        "pytorch_cpu_ms": {
+          "mean": 1146.64,
+          "p50": 1105.99,
+          "p95": 1332.9,
+          "p99": 1840.23
+        },
+        "onnx_cpu_ms": {
+          "mean": 585.34,
+          "p50": 558.5,
+          "p95": 750.95,
+          "p99": 913.98
+        },
+        "speedup_ratio": 1.96
+      }
+    }
+  }
+}

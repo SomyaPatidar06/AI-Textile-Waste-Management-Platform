@@ -1,0 +1,18 @@
+{
+  "test_rolls": [
+    "002",
+    "010"
+  ],
+  "test_clean_batches": [
+    "2608691-202020u"
+  ],
+  "defective_sample_count": 19,
+  "clean_sample_count": 21,
+  "defective_roll_recall": 1.0,
+  "defective_roll_fnr": 0.0,
+  "clean_roll_specificity": 0.0,
+  "clean_roll_fpr": 1.0,
+  "total_gt_boxes": 19,
+  "gt_boxes_intersected": 14,
+  "gt_coverage_rate": 0.7368
+}
