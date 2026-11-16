@@ -81,7 +81,7 @@ The **AI Textile Waste Management Platform** bridges this gap by combining:
 │             FastAPI Backend Service (:8000)            │
 │  ├── Auth & RBAC (Argon2id, JWT Rotation & Blocklist)  │
 │  ├── Inventory Lifecycle & Audit History Engine        │
-│  ├── AI Inference Engine (ResNet-18 & ONNX Runtime)   │
+│  ├── AI Inference Engine (ResNet-18 & ONNX Runtime)    │
 │  │   ├── MaterialEngine (6-class natural fibers)       │
 │  │   └── SpatialDefectDetector (Multi-scale scanner)   │
 │  ├── Circularity & 7-Pathway Recommendation Engine     │
